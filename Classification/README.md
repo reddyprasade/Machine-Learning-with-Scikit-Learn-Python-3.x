@@ -19,12 +19,12 @@ While categorizing the news articles (Same news category(Sport) articles are one
 Let’s understand the concept with clustering genders based on hair length example. To determine gender, different similarity measure could be used to categorize male and female genders. This could be done by finding the similarity between two hair lengths and keep them in the same group if the similarity is less (Difference of hair length is less). The same process could continue until all the hair length properly grouped into two categories.
 
 ##### Basic Terminology in Classification Algorithms
-**Classifier:** An algorithm that maps the input data to a specific category.
-**Classification model:** A classification model tries to draw some conclusion from the input values given for training. It will predict the class labels/categories for the new data.
-**Feature:** A feature is an individual measurable property of a phenomenon being observed.
-**Binary Classification:** Classification task with two possible outcomes. Eg: Gender classification (Male / Female)
-**Multi-class classification:** Classification with more than two classes. In multi-class classification, each sample is assigned to one and only one target label. Eg: An animal can be a cat or dog but not both at the same time. 
-**Multi-label classification:** Classification task where each sample is mapped to a set of target labels (more than one class). Eg: A news article can be about sports, a person, and location at the same time.
+1. **Classifier:** An algorithm that maps the input data to a specific category.
+2. **Classification model:** A classification model tries to draw some conclusion from the input values given for training. It will predict the class labels/categories for the new data.
+3. **Feature:** A feature is an individual measurable property of a phenomenon being observed.
+4. **Binary Classification:** Classification task with two possible outcomes. Eg: Gender classification (Male / Female)
+5. **Multi-class classification:** Classification with more than two classes. In multi-class classification, each sample is assigned to one and only one target label. Eg: An animal can be a cat or dog but not both at the same time. 
+6. **Multi-label classification:** Classification task where each sample is mapped to a set of target labels (more than one class). Eg: A news article can be about sports, a person, and location at the same time.
 
 
 ##### Applications of Classification Algorithms
