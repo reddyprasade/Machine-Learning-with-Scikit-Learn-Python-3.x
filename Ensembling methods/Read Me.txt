@@ -1,1 +1,60 @@
+In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms alone. Unlike a statistical ensemble in statistical mechanics, which is usually infinite, a machine learning ensemble consists of only a concrete finite set of alternative models, but typically allows for much more flexible structure to exist among those alternatives.
 
+
+
+**Common types of ensembles**
+
+### Bayes optimal classifier
+
+The Bayes optimal classifier is a classification technique. It is an ensemble of all the hypotheses in the hypothesis space. On average, no other ensemble can outperform it. The naive Bayes optimal classifier is a version of this that assumes that the data is conditionally independent on the class and makes the computation more feasible. Each hypothesis is given a vote proportional to the likelihood that the training dataset would be sampled from a system if that hypothesis were true. To facilitate training data of finite size, the vote of each hypothesis is also multiplied by the prior probability of that hypothesis. The Bayes optimal classifier can be expressed with the following equation:
+
+{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(T|h_{i})P(h_{i})}}{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(T|h_{i})P(h_{i})}}
+where {\displaystyle y}y is the predicted class, {\displaystyle C}C is the set of all possible classes, {\displaystyle H}H is the hypothesis space, {\displaystyle P}P refers to a probability, and {\displaystyle T}T is the training data. As an ensemble, the Bayes optimal classifier represents a hypothesis that is not necessarily in {\displaystyle H}H. The hypothesis represented by the Bayes optimal classifier, however, is the optimal hypothesis in ensemble space (the space of all possible ensembles consisting only of hypotheses in {\displaystyle H}H).
+
+This formula can be restated using Bayes' theorem, which says that the posterior is proportional to the likelihood times the prior:
+
+{\displaystyle P(h_{i}|T)\propto P(T|h_{i})P(h_{i})}{\displaystyle P(h_{i}|T)\propto P(T|h_{i})P(h_{i})}
+hence,
+
+{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(h_{i}|T)}}{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(h_{i}|T)}}
+Bootstrap aggregating (bagging)
+Main article: Bootstrap aggregating
+Bootstrap aggregating, often abbreviated as bagging, involves having each model in the ensemble vote with equal weight. In order to promote model variance, bagging trains each model in the ensemble using a randomly drawn subset of the training set. As an example, the random forest algorithm combines random decision trees with bagging to achieve very high classification accuracy.[14]
+
+Boosting
+Main article: Boosting (meta-algorithm)
+Boosting involves incrementally building an ensemble by training each new model instance to emphasize the training instances that previous models mis-classified. In some cases, boosting has been shown to yield better accuracy than bagging, but it also tends to be more likely to over-fit the training data. By far, the most common implementation of boosting is Adaboost, although some newer algorithms are reported to achieve better results.[citation needed]
+
+Bayesian model averaging
+Bayesian model averaging (BMA) is an ensemble technique that seeks to approximate the Bayes optimal classifier by sampling hypotheses from the hypothesis space, and combining them using Bayes' law.[15] Unlike the Bayes optimal classifier, Bayesian model averaging (BMA) can be practically implemented. Hypotheses are typically sampled using a Monte Carlo sampling technique such as MCMC. For example, Gibbs sampling may be used to draw hypotheses that are representative of the distribution {\displaystyle P(T|H)}P(T|H). It has been shown that under certain circumstances, when hypotheses are drawn in this manner and averaged according to Bayes' law, this technique has an expected error that is bounded to be at most twice the expected error of the Bayes optimal classifier.[16] Despite the theoretical correctness of this technique, early work showed experimental results suggesting that the method promoted over-fitting and performed worse compared to simpler ensemble techniques such as bagging;[17] however, these conclusions appear to be based on a misunderstanding of the purpose of Bayesian model averaging vs. model combination.[18] Additionally, there have been considerable advances in theory and practice of BMA. Recent rigorous proofs demonstrate the accuracy of BMA in variable selection and estimation in high-dimensional settings,[19] and provide empirical evidence highlighting the role of sparsity-enforcing priors within the BMA in alleviating overfitting.[20]
+
+Bayesian model combination
+Bayesian model combination (BMC) is an algorithmic correction to Bayesian model averaging (BMA). Instead of sampling each model in the ensemble individually, it samples from the space of possible ensembles (with model weightings drawn randomly from a Dirichlet distribution having uniform parameters). This modification overcomes the tendency of BMA to converge toward giving all of the weight to a single model. Although BMC is somewhat more computationally expensive than BMA, it tends to yield dramatically better results. The results from BMC have been shown to be better on average (with statistical significance) than BMA, and bagging.[21]
+
+The use of Bayes' law to compute model weights necessitates computing the probability of the data given each model. Typically, none of the models in the ensemble are exactly the distribution from which the training data were generated, so all of them correctly receive a value close to zero for this term. This would work well if the ensemble were big enough to sample the entire model-space, but such is rarely possible. Consequently, each pattern in the training data will cause the ensemble weight to shift toward the model in the ensemble that is closest to the distribution of the training data. It essentially reduces to an unnecessarily complex method for doing model selection.
+
+The possible weightings for an ensemble can be visualized as lying on a simplex. At each vertex of the simplex, all of the weight is given to a single model in the ensemble. BMA converges toward the vertex that is closest to the distribution of the training data. By contrast, BMC converges toward the point where this distribution projects onto the simplex. In other words, instead of selecting the one model that is closest to the generating distribution, it seeks the combination of models that is closest to the generating distribution.
+
+The results from BMA can often be approximated by using cross-validation to select the best model from a bucket of models. Likewise, the results from BMC may be approximated by using cross-validation to select the best ensemble combination from a random sampling of possible weightings.
+
+Bucket of models
+A "bucket of models" is an ensemble technique in which a model selection algorithm is used to choose the best model for each problem. When tested with only one problem, a bucket of models can produce no better results than the best model in the set, but when evaluated across many problems, it will typically produce much better results, on average, than any model in the set.
+
+The most common approach used for model-selection is cross-validation selection (sometimes called a "bake-off contest"). It is described with the following pseudo-code:
+
+For each model m in the bucket:
+    Do c times: (where 'c' is some constant)
+        Randomly divide the training dataset into two datasets: A, and B.
+        Train m with A
+        Test m with B
+Select the model that obtains the highest average score
+Cross-Validation Selection can be summed up as: "try them all with the training set, and pick the one that works best".[22]
+
+Gating is a generalization of Cross-Validation Selection. It involves training another learning model to decide which of the models in the bucket is best-suited to solve the problem. Often, a perceptron is used for the gating model. It can be used to pick the "best" model, or it can be used to give a linear weight to the predictions from each model in the bucket.
+
+When a bucket of models is used with a large set of problems, it may be desirable to avoid training some of the models that take a long time to train. Landmark learning is a meta-learning approach that seeks to solve this problem. It involves training only the fast (but imprecise) algorithms in the bucket, and then using the performance of these algorithms to help determine which slow (but accurate) algorithm is most likely to do best.[23]
+
+Stacking
+Stacking (sometimes called stacked generalization) involves training a learning algorithm to combine the predictions of several other learning algorithms. First, all of the other algorithms are trained using the available data, then a combiner algorithm is trained to make a final prediction using all the predictions of the other algorithms as additional inputs. If an arbitrary combiner algorithm is used, then stacking can theoretically represent any of the ensemble techniques described in this article, although, in practice, a logistic regression model is often used as the combiner.
+
+Stacking typically yields performance better than any single one of the trained models.[24] It has been successfully used on both supervised learning tasks (regression,[25] classification and distance learning [26]) and unsupervised learning (density estimation).[27] It has also been used to estimate bagging's error rate.[3][28] It has been reported to out-perform Bayesian model-averaging.[29] The two top-performers in the Netflix competition utilized blending, which may be considered to be a form of stacking.[30]
