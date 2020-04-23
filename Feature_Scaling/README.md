@@ -7,3 +7,7 @@
 * If one of the features has a broad range of values, the distance will be governed by this particular feature. 
 * Therefore, the range of all features should be normalized so that each feature contributes approximately proportionately to the final distance.
 Another reason why feature scaling is applied is that gradient descent converges much faster with feature scaling than without it
+
+
+### Reference 
+1. [Wiki](https://en.wikipedia.org/wiki/Feature_scaling)
