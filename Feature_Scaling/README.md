@@ -11,3 +11,6 @@ Another reason why feature scaling is applied is that gradient descent converges
 
 ### Reference 
 1. [Wiki](https://en.wikipedia.org/wiki/Feature_scaling)
+
+## On What Data We Have to apply What  type of Scaling:
+![](https://lh3.googleusercontent.com/-JgXpB4x3V0c/Xqa1jaEze1I/AAAAAAAAn5E/IF970DPGHWcMieoywvWyMAzj19drP1ywACK8BGAsYHg/s0/25.jpg)
