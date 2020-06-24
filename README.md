@@ -1,8 +1,17 @@
 # Machine-Learning-with-Scikit-Learn-Python-3.x
 
 **Defination:** Machine learning is the scientific study of `algorithms` and `statistical models` that `computer systems` use in order to perform a `specific task` effectively `without using explicit instructions`, relying on patterns and inference instead. It is seen as a subset of artificial intelligence.
+When applying machine learning to real-world data, there are a lot of steps involved in the process -- starting with collecting the data and ending with generating predictions. 
 
-![Credit Belongs to Scholeaofai](https://lh3.googleusercontent.com/-BDrMnODc5Nw/XRh7PgeH6RI/AAAAAAAAe9I/FJIIqAr5QII9NfWKkD8Jmuvzq2cCgF1vQCK8BGAs/s0/ml.jpg)
+### Steps To  We Have To Build Machine Learning Models:
+* **Step 1: Gather the data** In industry, there are important considerations you need to take into account when building a dataset, such as target.
+* **Step 2: Prepare the data** Deal with missing values and categorical data. (Feature engineering,Feature Selection,Feature Transformation).
+* **Step 3: Select a model** There are a lot of different types of models. Which one should you select based on Your business  problem?
+* **Step 4: Train the model** Fit Regression and Classifiaction models to patterns in training data.
+* **Step 5: Evaluate the model** Use a validation set to assess how well a trained model performs on unseen data.
+* **Step 6: Tune parameters** Tune parameters to get better performance from XGBoost models.
+* **Step 7: Get predictions** Generate predictions with a trained model
+![](https://lh3.googleusercontent.com/-J4pvUXXh7p8/XvL76CfEAsI/AAAAAAAAotc/Tk3Y1JIwXdsFA8YavQepcS97E41Bz0EGACK8BGAsYHg/s0/2020-06-24.png)
 
 
 
@@ -51,4 +60,7 @@ or ``conda``::
 
 The documentation includes more detailed `installation instructions <https://scikit-learn.org/stable/install.html>`_.
 
+
+
+![Credit Belongs to Scholeaofai](https://lh3.googleusercontent.com/-BDrMnODc5Nw/XRh7PgeH6RI/AAAAAAAAe9I/FJIIqAr5QII9NfWKkD8Jmuvzq2cCgF1vQCK8BGAs/s0/ml.jpg)[Scholeaofai](https://soai.world/)
 
