@@ -64,3 +64,14 @@ The documentation includes more detailed `installation instructions <https://sci
 
 ![Credit Belongs to Scholeaofai](https://lh3.googleusercontent.com/-BDrMnODc5Nw/XRh7PgeH6RI/AAAAAAAAe9I/FJIIqAr5QII9NfWKkD8Jmuvzq2cCgF1vQCK8BGAs/s0/ml.jpg)[Scholeaofai](https://soai.world/)
 
+
+---
+# References To Learn and Develop your Self:
+* [Python](https://github.com/reddyprasade/Python-Basic-For-All-3.x)
+* [Data Science With Python ](https://github.com/reddyprasade/Data-Science-With-Python)
+* [Machine Learning with Python](https://github.com/reddyprasade/Machine-Learning-with-Scikit-Learn-Python-3.x)
+* [Deep learning With python](https://github.com/reddyprasade/Deep-Learning)
+* [Data Visulization](https://github.com/reddyprasade/Data-Science-With-Python/tree/master/Data%20Visualization)
+* [Life Cycle of Data Science](https://github.com/reddyprasade/Data-Science-With-Python/tree/master/Life%20Cycle%20Process%20of%20Data%20Science%20In%20Real%20World%20project)
+* [Statistics](https://github.com/reddyprasade/Data-Science-With-Python/tree/master/Statistics)
+
