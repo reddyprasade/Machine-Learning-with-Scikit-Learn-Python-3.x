@@ -1,4 +1,5 @@
 # Machine-Learning-with-Scikit-Learn-Python-3.x
+![](https://github.com/reddyprasade/Machine-Learning-with-Scikit-Learn-Python-3.x/blob/master/img/Machine.png)
 
 **Defination:** Machine learning is the scientific study of `algorithms` and `statistical models` that `computer systems` use in order to perform a `specific task` effectively `without using explicit instructions`, relying on patterns and inference instead. It is seen as a subset of artificial intelligence.
 When applying machine learning to real-world data, there are a lot of steps involved in the process -- starting with collecting the data and ending with generating predictions. 
