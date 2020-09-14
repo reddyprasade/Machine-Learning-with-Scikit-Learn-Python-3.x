@@ -18,7 +18,7 @@ else:
 
 def read_file():
     #read transitions from file and store it to a variable
-    with open('transitions.csv', 'r') as csvfile:
+    with open('Reinforcement/transitions.csv', 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
             if row[0] in Transitions:
@@ -30,7 +30,7 @@ def read_file():
                 Transitions[row[0]] = {row[1]:[(float(row[3]),row[2])]}
 
     #read rewards file and save it to a variable
-    with open('rewards.csv', 'r') as csvfile:
+    with open('Reinforcement/rewards.csv', 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
             Reward[row[0]] = float(row[1]) if row[1] != 'None' else None
@@ -119,4 +119,4 @@ for s in V:
 pi = best_policy(V)
 print('\nOptimal policy is \nState - Action')
 for s in pi:
-    print(s, ' - ' , pi[s])
+    print (s, ' - ' , pi[s])
